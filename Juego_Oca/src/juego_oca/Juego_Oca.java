@@ -5,17 +5,16 @@
  */
 package juego_oca;
 
+import Vistas.VistaModoJuego;
+
 /**
  *
  * @author Javier_p
  */
 public class Juego_Oca {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        VistaModoJuego modo = new VistaModoJuego();
     }
     
 }

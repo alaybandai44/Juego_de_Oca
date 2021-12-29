@@ -1,3 +1,5 @@
+package Vistas;
+
 
 import Controladores.ControladorModoJuego;
 import java.awt.Color;

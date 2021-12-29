@@ -5,8 +5,11 @@
  */
 package Vistas;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +28,12 @@ public class VistaReglas extends JFrame{
    
     public VistaReglas(){
         super("El Juego de la OCA - Reglas");
+        try{
+            Image img = ImageIO.read(new File("src/images/oca70.png"));
+            this.setIconImage(img);
+        }catch(Exception e){
+        
+        }
         propiedadesVentana();
         iniciarElementos();
         anadirElementos();

@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.TextField;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class VistaModoJuego extends JFrame {
-
     private JButton jugadoresUno, jugadoresDos,empezar;
     private TextField nombreJugadorUno, nombreJugadorDos;
     private ControladorModoJuego ctr;
@@ -25,6 +26,12 @@ public class VistaModoJuego extends JFrame {
 
     public VistaModoJuego() {
         super("La OCA - Modos de Juego");
+        try{
+            Image img = ImageIO.read(new File("src/images/oca70.png"));
+            this.setIconImage(img);
+        }catch(Exception e){
+        
+        }
         propiedadesVentana();
         anadirFondo();
         inicializarElementos();

@@ -9,6 +9,7 @@ import Controladores.GestorMenu;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
@@ -16,6 +17,8 @@ import java.awt.MenuShortcut;
 import static java.awt.event.KeyEvent.VK_C;
 import static java.awt.event.KeyEvent.VK_N;
 import static java.awt.event.KeyEvent.VK_R;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +29,7 @@ import javax.swing.JPanel;
  * @author Javier_p
  */
 public class VistaTablero extends JFrame {
-      private FondoPanel fondo;
+    private FondoPanel fondo;
     private ControladorTablero con;
     private MenuItem op1, op2, op3;
     private Menu menu;
@@ -58,6 +61,12 @@ public class VistaTablero extends JFrame {
 
     public VistaTablero(ControladorTablero controla) {
         super("¡El juego de la OCA!");
+        try{
+            Image img = ImageIO.read(new File("src/images/oca70.png"));
+            this.setIconImage(img);
+        }catch(Exception e){
+        
+        }
         this.con = controla;
         j1=controla.jugador1;
         j2=controla.jugador2;

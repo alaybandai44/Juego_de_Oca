@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.io.Serializable;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -27,7 +29,7 @@ public class ControladorTablero extends WindowAdapter implements KeyListener, Mo
      * @param jugador1
      * @param jugador2 
      */
-    public ControladorTablero(Jugador jugador1,Jugador jugador2){
+    public ControladorTablero(Jugador jugador1,Jugador jugador2) throws IOException{
         this.jugador1=jugador1;
         this.jugador2=jugador2;
         
@@ -41,7 +43,7 @@ public class ControladorTablero extends WindowAdapter implements KeyListener, Mo
      * Constructor con 1 jugador
      * @param jugador1 
      */
-    public ControladorTablero(Jugador jugador1){
+    public ControladorTablero(Jugador jugador1) throws IOException{
         this.jugador1=jugador1;
         vis = new VistaTablero(this);
         vis.mostrarCronometro();

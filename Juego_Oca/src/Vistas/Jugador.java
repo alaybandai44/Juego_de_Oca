@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  */
 public class Jugador extends JLabel{
      private String nombre;
-    public ControladorJugador con;
+     public ControladorJugador con;
     
     public Jugador(String nombre, ImageIcon imagenFicha){
         this.nombre = nombre;

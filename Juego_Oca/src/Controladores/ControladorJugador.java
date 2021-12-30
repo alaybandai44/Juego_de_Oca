@@ -4,14 +4,16 @@ package Controladores;
 import Vistas.Jugador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.Timer;
 
-public class ControladorJugador {
+public class ControladorJugador implements Serializable {
     
-    public Jugador jug;
-    private Timer timer;
-    private int posicion, penalizacion;
-    private ControladorTablero conTablero;
+    public  Jugador jug;
+    private transient Timer timer;
+    private int posicion;
+     private int penalizacion;
+    private transient ControladorTablero conTablero;
     
     private int[] coordenadasX ={150, 270, 355, 425, 495, 565, 645, 720, 790, 870, 930, 980, 1000, 1030, 1030, 1010, 1000, 950, 
         880, 790, 710, 640, 570, 500, 430, 360, 290, 220, 160, 120, 90, 80, 80, 90, 115, 170, 230, 300, 360, 430, 500, 570, 645, 
@@ -34,6 +36,14 @@ public class ControladorJugador {
      */
     public void anadirControlador(ControladorTablero con){
         this.conTablero = con;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public void setPenalizacion(int penalizacion) {
+        this.penalizacion = penalizacion;
     }
     
     /**

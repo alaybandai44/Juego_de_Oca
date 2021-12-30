@@ -8,6 +8,9 @@ import Vistas.Jugador;
 import Vistas.VistaModoJuego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 
@@ -47,7 +50,11 @@ public class ControladorModoJuego implements ActionListener{
         } 
         
         else if(ae.getActionCommand().equalsIgnoreCase("JUGAR") && !modoJuego.getNombreJugadorDos().equalsIgnoreCase("player2")){
-            crearTableroDosJugadores(modoJuego.getNombreJugadorUno(),modoJuego.getNombreJugadorDos());
+            try {
+                crearTableroDosJugadores(modoJuego.getNombreJugadorUno(),modoJuego.getNombreJugadorDos());
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorModoJuego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
@@ -55,7 +62,7 @@ public class ControladorModoJuego implements ActionListener{
      * Metodo que se llama cuando creamos un tablero con 2 jugadores
      * @param nombre 
      */
-    public void crearTableroDosJugadores(String nombre1Jugador, String nombre2Jugador) {
+    public void crearTableroDosJugadores(String nombre1Jugador, String nombre2Jugador) throws IOException {
         Jugador jugador1 = new Jugador(nombre1Jugador, IMAGEN_FICHA_1);
         Jugador jugador2 = new Jugador(nombre2Jugador, IMAGEN_FICHA_2);
         ctrTablero = new ControladorTablero(jugador1, jugador2);
@@ -70,7 +77,11 @@ public class ControladorModoJuego implements ActionListener{
      */
     public void crearTableroUnJugador(String nombre) {
         Jugador jugador1 = new Jugador(nombre, IMAGEN_FICHA_1);
-        ctrTablero = new ControladorTablero(jugador1);
+        try {
+            ctrTablero = new ControladorTablero(jugador1);
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorModoJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
         modoJuego.setVisible(false);
         jugador1.con.anadirControlador(ctrTablero);
     }
